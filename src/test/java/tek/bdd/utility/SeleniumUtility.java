@@ -66,4 +66,11 @@ public class SeleniumUtility extends BaseSetup {
     public List<WebElement> getElements(By locator) {
         return getWait().until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
     }
+
+    public String getTitleElement() {
+        LOGGER.info("getting the tittle of the webPage: ");
+        return getDriver().getTitle();
+
+    }
+
 }
