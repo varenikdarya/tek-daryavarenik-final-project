@@ -36,3 +36,17 @@ Feature: Create Account
     Then user click on "Create Account" button
     Then error message should be appear "Account with email John2012@gmail.com is exist"
 
+  @CreateAccountScenario4
+  Scenario: Create Account with Age less that 18 Years Old and validate error
+    When user fills out the form with valid information and existing email
+      | email              | John2012@gmail.com |
+      | First Name         | John               |
+      | Last Name          | Adams              |
+      | Employment Status  | Engineer           |
+      | Date Of Birth      | 10/20/2010         |
+    And user selects from the Title dropdown  "Mr."
+    And user selects from the Gender dropdown "Male"
+    And user selects  from the Marital Status dropdown "Single"
+    Then user click on "Create Account" button
+    Then error message should be appear "you must be 18 years or older to create account"
+
