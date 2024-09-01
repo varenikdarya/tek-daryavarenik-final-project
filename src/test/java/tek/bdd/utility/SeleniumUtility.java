@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import tek.bdd.base.BaseSetup;
 
@@ -23,11 +24,6 @@ public class SeleniumUtility extends BaseSetup {
     }
 
     public void clickOnElement(By locator) {
-        getWait().until(ExpectedConditions.elementToBeClickable(locator))
-                .click();
-        LOGGER.info("Clicking on Element {}", locator);
-    }
-    public void clickOnElement(WebElement locator) {
         getWait().until(ExpectedConditions.elementToBeClickable(locator))
                 .click();
         LOGGER.info("Clicking on Element {}", locator);
@@ -73,4 +69,10 @@ public class SeleniumUtility extends BaseSetup {
 
     }
 
+    public static void selectDropdownByVisibleText(By locator, String visibleText) {
+        LOGGER.info("finding element of a dropdown menu by {} and value is {}", locator, visibleText);
+        WebElement element = getDriver().findElement(locator);
+        Select dropdown = new Select(element);
+        dropdown.selectByVisibleText(visibleText);
+    }
 }

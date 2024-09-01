@@ -73,7 +73,7 @@ public abstract class BaseSetup {
 
     //Giving read-only indirect access to driver.
     //restrict setting new driver instance
-    public WebDriver getDriver() {
+    public static WebDriver getDriver() {
         return driver;
     }
 }
