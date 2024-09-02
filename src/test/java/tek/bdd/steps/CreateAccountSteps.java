@@ -5,8 +5,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import tek.bdd.pages.CreateAccountPage;
-import tek.bdd.pages.HomePage;
-import tek.bdd.pages.ProfilePage;
+import tek.bdd.pages.PrimaryAccountPage;
 import tek.bdd.pages.SignUpAccountPage;
 import tek.bdd.utility.RandomGenerator;
 import tek.bdd.utility.SeleniumUtility;
@@ -108,13 +107,13 @@ public class CreateAccountSteps extends SeleniumUtility {
     }
     @Then("user should navigated to {string} page")
     public void user_should_navigated_to(String expectedTitle) {
-        String actualTitle = getElementText(ProfilePage.CUSTOMER_PORTAL_TITLE);
+        String actualTitle = getElementText(PrimaryAccountPage.PRIMARY_ACCOUNT_PORTAL_TITLE);
         Assert.assertEquals("Both title should match", expectedTitle, actualTitle);
     }
     @Then("user click on profile Icon and Full Name should display at Profile Section")
     public void user_clicking_on_profile_icon_and_full_name_should_display_at_profile_section() {
-    clickOnElement(ProfilePage.ICON_BUTTON);
-    String actualFullName = getElementText(ProfilePage.FULL_NAME);
+    clickOnElement(PrimaryAccountPage.ICON_BUTTON);
+    String actualFullName = getElementText(PrimaryAccountPage.FULL_NAME);
     Assert.assertEquals("Both Full Name should match",fullName, actualFullName);
     }
     }

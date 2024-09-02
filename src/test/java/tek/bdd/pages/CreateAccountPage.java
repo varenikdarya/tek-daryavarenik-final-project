@@ -12,7 +12,7 @@ public class CreateAccountPage {
     public static final By GENDER_DROPDOWN = By.xpath("//select[@id='gender']");
     public static final By TITLE_DROPDOWN = By.xpath("//select[@id='title']");
     public static final By MARITIAL_STATUS_DROPDOWN = By.xpath("//select[@id='maritalStatus']");
-    public static final By ERROR_EMAIL_MESSAGE = By.className("chakra-alert");
+    public static final By ERROR_MESSAGE = By.className("chakra-alert");
 
 
 

@@ -49,7 +49,7 @@ public class CommonSteps extends SeleniumUtility {
 
     @Then("error message should be appear {string}")
     public void error_message_should_be_appear(String expectedErrorMessage) {
-        String actualErrorMessage = getElementText(CreateAccountPage.ERROR_EMAIL_MESSAGE)
+        String actualErrorMessage = getElementText(CreateAccountPage.ERROR_MESSAGE)
                 .replace("ERROR", "").trim();;
         Assert.assertEquals("Both message should be the same: ", expectedErrorMessage, actualErrorMessage);
     }

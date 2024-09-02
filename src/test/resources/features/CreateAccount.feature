@@ -70,5 +70,6 @@ Feature: Create Account
     Then wait for 5 seconds
     Then then user sign in with valid username and password
     When user click on "Sign In" button
+    Then user should navigated to "Primary Account Portal" page
     Then user click on profile Icon and Full Name should display at Profile Section
 

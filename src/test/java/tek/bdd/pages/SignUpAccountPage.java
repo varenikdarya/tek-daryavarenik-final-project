@@ -9,4 +9,5 @@ public class SignUpAccountPage {
     public static final By PASSWORD_INPUT = By.id("password");
     public static final By CONFIRM_PASSWORD_INPUT = By.id("confirm");
 
+
 }
