@@ -17,6 +17,7 @@ public class SeleniumUtility extends BaseSetup {
 
     private WebDriverWait getWait() {
         return new WebDriverWait(getDriver(), Duration.ofSeconds(20));
+
     }
 
     private WebElement waitForVisibility(By locator) {
@@ -75,4 +76,4 @@ public class SeleniumUtility extends BaseSetup {
         Select dropdown = new Select(element);
         dropdown.selectByVisibleText(visibleText);
     }
-}
+    }

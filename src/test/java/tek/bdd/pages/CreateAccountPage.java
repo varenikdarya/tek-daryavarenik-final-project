@@ -13,7 +13,7 @@ public class CreateAccountPage {
     public static final By TITLE_DROPDOWN = By.xpath("//select[@id='title']");
     public static final By MARITIAL_STATUS_DROPDOWN = By.xpath("//select[@id='maritalStatus']");
     public static final By ERROR_EMAIL_MESSAGE = By.className("chakra-alert");
-    public static final By ERROR_MESSAGE = By.xpath("//div[contains(@class, 'chakra-alert') and contains(text(), 'Account with email John2012@gmail.com is exist')]");
+
 
 
 

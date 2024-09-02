@@ -50,3 +50,25 @@ Feature: Create Account
     Then user click on "Create Account" button
     Then error message should be appear "you must be 18 years or older to create account"
 
+  @CreateAccountScenario5
+  Scenario: Scenario 5)
+    When user fills out the form with valid information
+      | email              | random     |
+      | First Name         | John       |
+      | Last Name          | Adams      |
+      | Employment Status  | Engineer   |
+      | Date Of Birth      | 10/20/1980 |
+    And user selects from the Title dropdown  "Mr."
+    And user selects from the Gender dropdown "Male"
+    And user selects  from the Marital Status dropdown "Married"
+    Then user click on "Create Account" button
+    Then user fills out the Sign up account
+      | Username           | random         |
+      | Password           | Password@123   |
+      | Confirm Password   | Password@123   |
+    When user click on "Submit" button
+    Then wait for 5 seconds
+    Then then user sign in with valid username and password
+    When user click on "Sign In" button
+    Then user click on profile Icon and Full Name should display at Profile Section
+

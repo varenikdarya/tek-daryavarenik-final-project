@@ -6,6 +6,7 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import tek.bdd.pages.CreateAccountPage;
 import tek.bdd.pages.HomePage;
+import tek.bdd.pages.ProfilePage;
 import tek.bdd.pages.SignUpAccountPage;
 import tek.bdd.utility.RandomGenerator;
 import tek.bdd.utility.SeleniumUtility;
@@ -14,6 +15,8 @@ import java.util.Map;
 
 public class CreateAccountSteps extends SeleniumUtility {
     private static String emailToUse;
+    private static String userNameToUse;
+    private static String fullName;
 
     @Then("validate title {string} on the create account page")
     public void validate_title_on_the_create_account_page(String expectedTitle) {
@@ -76,6 +79,7 @@ public class CreateAccountSteps extends SeleniumUtility {
         String lastName = data.get("Last Name");
         String employmentStatus = data.get("Employment Status");
         String dateOfBirth = data.get("Date Of Birth");
+        fullName = firstName + " " + lastName;
 
         sendText(CreateAccountPage.EMAIL_INPUT, email);
         sendText(CreateAccountPage.FIRST_NAME_INPUT, firstName);
@@ -83,11 +87,34 @@ public class CreateAccountSteps extends SeleniumUtility {
         sendText(CreateAccountPage.EMPLOYMENT_STATUS_INPUT, employmentStatus);
         sendText(CreateAccountPage.DATE_OF_BIRTH, dateOfBirth);
     }
+    @Then("user fills out the Sign up account")
+    public void user_fills_out_the_sign_up_account(DataTable dataTable) {
+        Map<String, String> data = dataTable.asMap();
+        String userName = data.get("Username");
+        String password = data.get("Password");
+        String confirmPassword = data.get("Confirm Password");
 
-    @Then("error message should be appear {string}")
-    public void error_message_should_be_appear(String expectedErrorMessage) {
-        String actualErrorMessage = getElementText(CreateAccountPage.ERROR_EMAIL_MESSAGE)
-                .replace("ERROR", "").trim();;
-        Assert.assertEquals("Both message should be the same: ", expectedErrorMessage, actualErrorMessage);
+        userNameToUse = userName.equalsIgnoreCase("random")
+                ? RandomGenerator.userNameGenerator(fullName) : userName;
+
+        sendText(SignUpAccountPage.USERNAME_INPUT, userNameToUse);
+        sendText(SignUpAccountPage.PASSWORD_INPUT, password);
+        sendText(SignUpAccountPage.CONFIRM_PASSWORD_INPUT, password);
+    }
+    @Then("then user sign in with valid username and password")
+    public void then_user_sign_in_with_valid_username_and_password() {
+        sendText(SignUpAccountPage.USERNAME_INPUT,userNameToUse);
+        sendText(SignUpAccountPage.PASSWORD_INPUT,"Password@123");
+    }
+    @Then("user should navigated to {string} page")
+    public void user_should_navigated_to(String expectedTitle) {
+        String actualTitle = getElementText(ProfilePage.CUSTOMER_PORTAL_TITLE);
+        Assert.assertEquals("Both title should match", expectedTitle, actualTitle);
+    }
+    @Then("user click on profile Icon and Full Name should display at Profile Section")
+    public void user_clicking_on_profile_icon_and_full_name_should_display_at_profile_section() {
+    clickOnElement(ProfilePage.ICON_BUTTON);
+    String actualFullName = getElementText(ProfilePage.FULL_NAME);
+    Assert.assertEquals("Both Full Name should match",fullName, actualFullName);
     }
     }
