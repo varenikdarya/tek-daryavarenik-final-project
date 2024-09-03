@@ -114,6 +114,6 @@ public class CreateAccountSteps extends SeleniumUtility {
     public void user_clicking_on_profile_icon_and_full_name_should_display_at_profile_section() {
     clickOnElement(PrimaryAccountPage.ICON_BUTTON);
     String actualFullName = getElementText(PrimaryAccountPage.FULL_NAME);
-    Assert.assertEquals("Both Full Name should match",fullName, actualFullName);
+    Assert.assertEquals("Both Full Name should match", fullName, actualFullName);
     }
     }
