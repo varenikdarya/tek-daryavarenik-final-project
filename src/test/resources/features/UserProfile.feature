@@ -18,6 +18,6 @@ Feature:User Profile feature
       | Authorities | admin      |
 
   @UserProfileScenario2
-  Scenario: Validate user after log out navigate to home page
+  Scenario: Validate user after log out will navigate to home page
     Then user click on "Logout" button
     Then validate the home page title is "TEK Insurance UI"
