@@ -51,7 +51,7 @@ Feature: Create Account
     Then error message should be appear "you must be 18 years or older to create account"
 
   @CreateAccountScenario5
-  Scenario: Scenario 5)
+  Scenario: Scenario 5
     When user fills out the form with valid information
       | email              | random     |
       | First Name         | John       |

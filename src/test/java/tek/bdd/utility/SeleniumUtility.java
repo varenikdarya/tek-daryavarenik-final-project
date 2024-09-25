@@ -76,4 +76,15 @@ public class SeleniumUtility extends BaseSetup {
         Select dropdown = new Select(element);
         dropdown.selectByVisibleText(visibleText);
     }
+    public void selectFromDropDownByValue(By locator, String value) {
+        LOGGER.info("finding element of a drop down menu by {} and value is {}", locator, value);
+        WebElement element = getDriver().findElement(locator);
+        Select select = new Select(element);
+        select.selectByValue(value);
+
+
     }
+}
+
+
+
