@@ -1,4 +1,4 @@
-@LoginFeature
+@LoginFeature @Regression
 Feature: Login feature
 
   Background: Navigate to login page

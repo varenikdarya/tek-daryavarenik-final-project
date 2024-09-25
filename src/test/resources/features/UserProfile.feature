@@ -1,4 +1,4 @@
-@UserProfileFeature
+@UserProfileFeature @Regression
 Feature:User Profile feature
 
   Background: Navigate to login page
@@ -20,4 +20,4 @@ Feature:User Profile feature
   @UserProfileScenario2
   Scenario: Validate user after log out navigate to home page
     Then user click on "Logout" button
-    Then validate the home page title is "Tek Insurance UI"
+    Then validate the home page title is "TEK Insurance UI"

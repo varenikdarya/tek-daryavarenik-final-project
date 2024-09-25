@@ -1,4 +1,4 @@
-@PlansFeature
+@PlansFeature @Regression
 Feature: Plans features
 
   Background: Navigate to login page

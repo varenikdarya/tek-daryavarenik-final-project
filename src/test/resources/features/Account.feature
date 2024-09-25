@@ -1,4 +1,4 @@
-@AccountsFeature
+@AccountsFeature @Regression
 Feature: Accounts feature
 
   Background: Navigate to login page

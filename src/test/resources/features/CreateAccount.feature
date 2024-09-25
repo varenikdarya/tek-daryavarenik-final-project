@@ -1,4 +1,4 @@
-@Smoke
+@CreateAccountFeature @Regression
 Feature: Create Account
   Background: User click on Create Primary Account button
     Given user click on a link text button "Create Primary Account"

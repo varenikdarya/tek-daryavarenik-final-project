@@ -1,4 +1,4 @@
-@Smoke
+@Regression
 Feature: Home page validation
   @HomePageScenario1
   Scenario: Validate home page title is TEK Insurance UI and create Primary Account Button is exist
